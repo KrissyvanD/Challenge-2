@@ -1,7 +1,13 @@
-body{
+
+	body {
 	background: linear-gradient(to right, #021b36, #240952 , #35144f);
 	color: white;
 	font-family: 'Delius Swash Caps', cursive;
+	align-items: center;
+	display:flex;
+	justify-content: center;
+	min-height: 100vh;
+
 }
 
 .clock {
@@ -20,6 +26,7 @@ body{
 	height: 100%;
 	text-align: center;
 	transform: rotate(var(--rotation));
+	font-size: 20px;
 }
 
 .clock .number1{ --rotation: 30deg; }
@@ -34,3 +41,47 @@ body{
 .clock .number10{ --rotation: 300deg; }
 .clock .number11{ --rotation: 330deg; }
 .clock .number12{ --rotation: 360deg; }
+
+.clock .line{
+	--rotation: 0;
+	position: absolute;
+	bottom: 50%;
+	left: 50%;
+	width: 7px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	height: 40%;
+	background-color: black;
+	transform-origin: bottom;
+	transform: translateX(-50%) rotate(calc(var( --rotation) * 1deg));
+}
+
+.clock .line.second{
+	width: 3px;
+	height: 45%;
+	background-color: red;
+}
+
+.clock .line.minute{
+	width: 7px;
+	height: 35%;
+	background-color: black;
+}
+
+.clock .line.hour{
+	width: 10px;
+	height: 40%;
+	background-color: black;
+}
+
+.clock .dot{
+	position: absolute;
+	background-color: black;
+	z-index: 50;
+	width: 15px;
+	height: 15px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+}
